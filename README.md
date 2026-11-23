@@ -34,15 +34,15 @@
 ## 3. Loop / Graph 流程設計
 
 ```mermaid
-flowchart TD
-    A["1. 取得 5 篇 RoB 2 方法學文獻 (raw/)"] --> B["2. Ingest 編譯 LLM Wiki (wiki/)"]
-    B --> C["3. 查詢 Wiki 規則，對 5 篇 RCT 測試集 (test-cases/) 執行評量<br/>(RoB 2 Assessment Skill)"]
-    C --> D{"4. 前置規則與事實檢查關卡<br/>(Rule Validation Skill：V1–V5)"}
-    D -- "FAIL：違反官方演算法 / 誤判客觀終點 / 缺少白話說明<br/>(Loop，最多重試 3 次)" --> C
-    D -- "PASS" --> E["5. 結合 Wiki 概念與驗證後測試案例，生成教學 HTML 簡報"]
-    E --> F{"6. 視覺排版與初學者可讀性檢查"}
-    F -- "FAIL：術語過深 / 版面溢出<br/>(Loop，最多重試 2 次)" --> E
-    F -- "PASS / 達停止條件" --> G["7. 輸出 HTML 簡報與實測驗證紀錄 (logs/execution-record.md)"]
+flowchart LR
+    A["1. 取得 5 篇 RoB 2<br/>方法學文獻 (raw/)"] --> B["2. Ingest 編譯<br/>LLM Wiki (wiki/)"]
+    B --> C["3. 查詢 Wiki 評量<br/>5 篇 RCT (test-cases/)<br/>RoB 2 Assessment Skill"]
+    C --> D{"4. 前置規則檢查<br/>Rule Validation Skill<br/>(V1–V5)"}
+    D -- "FAIL<br/>(Loop 上限 3 次)" --> C
+    D -- "PASS" --> E["5. 生成教學型<br/>HTML 簡報"]
+    E --> F{"6. 視覺排版與<br/>可讀性檢查"}
+    F -- "FAIL<br/>(Loop 上限 2 次)" --> E
+    F -- "PASS / 停止條件" --> G["7. 輸出簡報與<br/>驗證日誌 (logs/)"]
 ```
 
 ### 為什麼這樣設計？
