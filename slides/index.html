@@ -609,10 +609,10 @@
       </div>
     </section>
 
-    <!-- Slide 9: Execution & Reflection -->
-    <section class="slide" data-title="實測紀錄與反思">
-      <span class="eyebrow">作業重點 · 實測紀錄與反思</span>
-      <h2>實際執行抓錯紀錄與「檢查左移」反思</h2>
+    <!-- Slide 9: Execution & Architecture Highlights -->
+    <section class="slide" data-title="實測紀錄與架構優化">
+      <span class="eyebrow">實戰驗證 · Shift-Left 檢查左移</span>
+      <h2>實際執行抓錯紀錄與架構設計重點</h2>
       <div class="grid-2">
         <div class="card warn">
           <h3>一次實際執行紀錄（Round 1 → Round 2）</h3>
@@ -626,11 +626,11 @@
           </ul>
         </div>
         <div class="card highlight">
-          <h3>三題核心反思</h3>
+          <h3>關鍵架構設計原則</h3>
           <ul>
-            <li><strong>最常出錯節點：</strong>節點 3（評量生成）最常在「開放標籤客觀終點」與「Overall 一票否決」出錯。</li>
-            <li><strong>檢查往前移到哪？</strong>從「HTML 寫完才總檢」<strong>往前移至節點 4（HTML 生成之前）</strong>。</li>
-            <li><strong>為何修改 Graph？</strong>拆為前置規則迴圈 + 後置視覺迴圈，避免排版後才發現邏輯錯誤導致整頁重工。</li>
+            <li><strong>知識庫與測試集分離：</strong><code>wiki/</code> 專注收錄 5 篇 RoB 2 官方方法學；<code>test-cases/</code> 獨立存放 5 篇受測 RCT。</li>
+            <li><strong>檢查左移（Shift-Left）：</strong>將 <code>Rule Validation Skill</code> 置於 HTML 生成之前，避免排版後返工。</li>
+            <li><strong>兩段式雙迴圈：</strong>前置規則迴圈（3↔4）與後置排版迴圈（5↔6）各自設有明確停止條件。</li>
           </ul>
         </div>
       </div>

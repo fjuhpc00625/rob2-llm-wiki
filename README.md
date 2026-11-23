@@ -26,7 +26,7 @@
 - **雙 Skill 設計**：
   - [RoB 2 Assessment Skill](skills/rob2-assessment/SKILL.md)
   - [Rule Validation Skill](skills/rule-validation/SKILL.md)
-- **5 篇 RCT 測試驗證結果與反思**：[logs/execution-record.md](logs/execution-record.md)
+- **5 篇 RCT 測試驗證紀錄**：[logs/execution-record.md](logs/execution-record.md)
 - **教學型互動 HTML 簡報**：[slides/index.html](slides/index.html)（GitHub Pages：`https://fjuhpc00625.github.io/rob2-llm-wiki/slides/`）
 
 ---
@@ -54,14 +54,3 @@ flowchart LR
    - 第二關檢查簡報互動體驗、版面與教學清晰度。
 3. **為什麼把知識庫與測試集分離？**
    - 避免把「待評估的試驗案例」與「評估標準本身」混為一談：`wiki/` 永遠保持純淨的方法學規範，`test-cases/` 則可隨時抽換新論文來驗證雙 Skill 的泛化能力。
-
----
-
-## 4. 實際執行與反思摘要（詳見 `logs/execution-record.md`）
-
-- **哪一個節點最常出錯？**
-  - **節點 3（RoB 2 Assessment Skill）** 在評估 `test-cases/` 時最常出現兩類錯誤：(1) 看到「Open-label」就反射性把 `RAPID-CHF` 的 **D4（24 小時體重變化）** 判為 `High`，違反規則 V2；(2) 在 `Hu et al. (2020)` 中 `D1 = High` 卻將 Overall Risk 判為 `Some concerns`，違反規則 V1。
-- **把檢查往前移到了哪一個步驟？**
-  - 將 `Rule Validation Skill` 從「HTML 簡報完成後的總檢查」**往前移至節點 4（測試評量完成後、HTML 簡報生成之前）**，在邏輯錯誤進入排版前即攔截修正。
-- **如何修改 Workflow / Graph？**
-  - 重構為「**前置規則驗證迴圈（節點 3↔4）＋ 後置視覺教學迴圈（節點 5↔6）**」兩段式 Graph，並明確切分 `raw/`（方法學知識來源）與 `test-cases/`（受測 RCT 案例），大幅減少返工並提升架構嚴謹度。
