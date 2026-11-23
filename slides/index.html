@@ -326,11 +326,11 @@
       <div class="grid-3">
         <div class="card highlight">
           <h3>知識來源：LLM Wiki</h3>
-          <p>匯入 5 篇真實臨床隨機對照試驗（4 篇心衰竭超濾 + 1 篇氣喘雙盲三期試驗），先編譯再查詢。</p>
+          <p>匯入 5 篇 <strong>RoB 2 官方方法學文獻</strong>（BMJ 2019、Full Guidance、22 題 Crib Sheet、官方演算法、Cochrane Handbook Ch.8）編譯而成。</p>
         </div>
         <div class="card">
-          <h3>雙 Skill 角色分離</h3>
-          <p><code>RoB 2 Assessment</code> 負責評量拆解；<code>Rule Validation</code> 負責確定性規則稽核。</p>
+          <h3>外部測試集：5 篇真實 RCT</h3>
+          <p>以 4 篇心衰竭超濾開放標籤試驗 + 1 篇氣喘雙盲三期試驗作為測試案例，驗證 <code>RoB 2 Assessment</code> 與 <code>Rule Validation</code> 雙 Skill。</p>
         </div>
         <div class="card">
           <h3>操作提示</h3>
@@ -430,9 +430,9 @@
     </section>
 
     <!-- Slide 5: 5 Trials Interactive Table -->
-    <section class="slide" data-title="5 篇真實 RCT 對照">
-      <span class="eyebrow">LLM Wiki 實證資料（點擊任一列查看白話解析）</span>
-      <h2>5 篇匯入試驗的 RoB 2 總覽對照</h2>
+    <section class="slide" data-title="5 篇 RCT 測試驗證結果">
+      <span class="eyebrow">外部測試集實戰結果（test-cases/ · 點擊任一列查看白話解析）</span>
+      <h2>5 篇真實 RCT 的雙 Skill 測試驗證結果</h2>
       <p>前 4 篇為「心衰竭超濾（開放標籤醫材試驗）」，第 5 篇為「氣喘三合一吸入劑（大型雙盲三期試驗）」，形成鮮明對比：</p>
       <div class="table-wrap">
         <table id="trialTable">
@@ -524,7 +524,7 @@
           <h3>Skill 1：<code>RoB 2 Assessment Skill</code></h3>
           <p><strong>定位：評量生成器（Generator）</strong></p>
           <ul>
-            <li>讀取 <code>wiki/trials/</code> 與 <code>rob2-decision-rules.md</code></li>
+            <li>讀取 <code>wiki/concepts/</code> 官方規則，評估 <code>test-cases/</code> 真實 RCT</li>
             <li>判斷主要終點屬於客觀或主觀指標</li>
             <li>逐一產出 D1–D5 評量草稿、證據句與白話解讀</li>
             <li>規定產出必標記為 <code>DRAFT</code>，不得自行放行</li>
@@ -574,11 +574,11 @@
       <h2>我們的兩段式 Loop / Graph 流程設計</h2>
       <div class="flow">
         <div class="flow-row">
-          <div class="node">1. 取得 5 篇 RCT (<code>raw/</code>)</div>
+          <div class="node">1. 取得 5 篇 RoB 2 方法學 (<code>raw/</code>)</div>
           <span class="arrow">→</span>
           <div class="node">2. Ingest 編譯 LLM Wiki (<code>wiki/</code>)</div>
           <span class="arrow">→</span>
-          <div class="node skill">3. RoB 2 Assessment Skill</div>
+          <div class="node skill">3. RoB 2 Assessment Skill 評量 5 篇 RCT (<code>test-cases/</code>)</div>
         </div>
         <div class="flow-row">
           <span class="arrow">↳</span>

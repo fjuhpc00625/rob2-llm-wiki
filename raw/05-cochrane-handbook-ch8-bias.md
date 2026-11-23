@@ -1,0 +1,8 @@
+# Source 05: Cochrane Handbook for Systematic Reviews of Interventions — Chapter 8 (Assessing Risk of Bias in a Randomized Trial)
+
+- **Citation**: Higgins JPT, Savović J, Page MJ, Elbers RG, Sterne JAC. Chapter 8: Assessing risk of bias in a randomized trial. In: Higgins JPT, Thomas J, Chandler J, Cumpston M, Li T, Page MJ, Welch VA (editors). *Cochrane Handbook for Systematic Reviews of Interventions* version 6.4 (updated 2023). Cochrane, 2023.
+- **Official URL**: https://training.cochrane.org/handbook/current/chapter-08
+- **Key Conceptual Principles**:
+  - **Risk of bias vs. quality of reporting**: Missing methodological detail (e.g., failing to state allocation concealment) does not prove bias occurred, hence RoB 2 uses `NI` and typically maps to `Some concerns` rather than automatically assuming `High risk` unless corroborating evidence (such as severe baseline/allocation imbalance) exists.
+  - **Open-label trials & objective outcomes**: In surgical, behavioral, or medical-device trials (such as extracorporeal ultrafiltration vs. pharmacologic therapy), blinding participants and clinicians is often infeasible. Chapter 8 emphasizes that lack of blinding does **not** automatically confer high risk of bias in D4 when outcomes are objective (e.g., all-cause mortality, calibrated body weight, automated laboratory or hemodynamic readings), whereas clinician-judged or patient-reported outcomes (e.g., dyspnea score or discretionary hospitalization) are more vulnerable.
+  - **Outcome-specific assessment**: Because D3, D4, and D5 depend on the specific outcome analyzed, reviewers must evaluate RoB 2 per outcome rather than assigning one generic score to an entire paper.
